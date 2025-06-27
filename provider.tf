@@ -10,7 +10,7 @@ terraform {
 
 provider "aws" {
   region  = "us-east-2"
-  access_key = "AKIAQOMPEKH3YHQKMDGB"
-  secret_key = "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"
+  access_key = ""
+  secret_key = ""
   # profile = var.aws_profile    # si usas perfiles del AWS CLI
 }
