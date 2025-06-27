@@ -1,3 +1,4 @@
+# File: provider.tf
 terraform {
   required_providers {
     aws = {
@@ -9,7 +10,7 @@ terraform {
 
 provider "aws" {
   region  = "us-east-2"
-  access_key = ""
-  secret_key = ""
+  access_key = var.access_key
+  secret_key = var.secret_key
   # profile = var.aws_profile    # si usas perfiles del AWS CLI
 }
