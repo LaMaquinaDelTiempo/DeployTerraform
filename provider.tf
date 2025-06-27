@@ -8,6 +8,8 @@ terraform {
 }
 
 provider "aws" {
-  region  = var.aws_region
+  region  = "us-east-2"
+  access_key = ""
+  secret_key = ""
   # profile = var.aws_profile    # si usas perfiles del AWS CLI
 }
