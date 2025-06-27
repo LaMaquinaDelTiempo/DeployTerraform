@@ -4,5 +4,5 @@ module "app_server" {
   instance_type  = var.ec2_instance_type
   key_name       = var.key_name
   sg_id          = var.sg_id
-  environment    = var.environment
+  environment    = "prod"
 }
