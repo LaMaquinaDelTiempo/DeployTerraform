@@ -1,3 +1,5 @@
+# Ignorar archivos y carpetas fuera del repositorio
+../*
 *.tfstate
 *.tfstate.backup
 .terraform/
