@@ -29,19 +29,8 @@ variable "security_group_id" {
   type        = string
   default     = "sg-84160bf1"
 }
-variable "access_key" {
-  description = "Clave de acceso para AWS"
-  type        = string
-  default     = "AKIAQOMPEKH3YHQKMDGB" 
-  
-}
 
-variable "secret_key" {
-  description = "Clave secreta para AWS"
-  type        = string
-  default     = "0TMJ4BHDhQa3Z0nyMfywFn3x4greJvW4weM25OWu"
 
-}
 variable "my_ip_cidr" {
   description = "CIDR de tu IP para acceso SSH"
   type        = string

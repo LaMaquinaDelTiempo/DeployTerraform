@@ -14,7 +14,13 @@ resource "aws_security_group" "my_sg" {
         protocol    = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
-
+ingress {
+        description = "Allow HTTPS traffic"
+        from_port   = 5000
+        to_port     = 5000
+        protocol    = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
     ingress {
         description = "Allow HTTPS traffic"
         from_port   = 5173
