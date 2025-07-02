@@ -1,3 +1,14 @@
+# Variables para el módulo de Terraform
+
+variable "ami_id" {}
+variable "instance_type" {}
+variable "subnet_id" {}
+variable "security_group_ids" { type = list(string) }
+variable "db_password" {}
+variable "db_subnet_group_name" {}
+
+# Variables para el módulo EC2 de Terraform
+
 variable "key_name" {
   description = "Nombre del par de llaves para SSH"
   type        = string
@@ -53,3 +64,9 @@ variable "environment" {
   default     = "dev" 
   
 }
+variable "region" {
+  default = "us-east-2"
+}
+
+variable "aws_access_key" {}
+variable "aws_secret_key" {}
