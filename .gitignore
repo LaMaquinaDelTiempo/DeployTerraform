@@ -5,3 +5,6 @@ terraform.tfvars
 # Local .terraform directories
 .terraform.lock.hcl 
 variables.tf
+*.pem
+.crash
+*.log"
