@@ -3,10 +3,10 @@ variable "security_group_name" {
     type        = string
 }
 
-variable "vpc_id" {
+/*variable "vpc_id" {
     description = "ID of the VPC where the security group will be created"
     type        = string
-}
+}*/
 
 variable "ingress_rules" {
     description = "List of ingress rules for the security group"

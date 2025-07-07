@@ -14,7 +14,7 @@ resource "aws_security_group" "my_sg" {
         protocol    = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
-ingress {
+    ingress {
         description = "Allow HTTPS traffic"
         from_port   = 5000
         to_port     = 5000
@@ -38,11 +38,11 @@ ingress {
     }
 
     tags = {
-        Name = "security-group"
+        Name = "security-group1"
     }
 }
 
 variable "vpc_id" {
-    description = "The ID of the VPC"
+    description = "vpc-62cb4009"
     type        = string
 }
