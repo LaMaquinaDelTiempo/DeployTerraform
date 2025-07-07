@@ -1,48 +1,27 @@
 resource "aws_security_group" "my_sg" {
-    
-    vpc_id      = var.vpc_id
+  name        = var.security_group_name
+  description = "Security group for app server"
+  vpc_id      = var.vpc_id
 
-    ingress {
-        from_port   = 22
-        to_port     = 22
-        protocol    = "tcp"
-        cidr_blocks = ["0.0.0.0/0"]
+  dynamic "ingress" {
+    for_each = var.ingress_rules
+    content {
+      from_port   = ingress.value.from_port
+      to_port     = ingress.value.to_port
+      protocol    = ingress.value.protocol
+      cidr_blocks = ingress.value.cidr_blocks
     }
-    ingress {
-        from_port   = 80
-        to_port     = 80
-        protocol    = "tcp"
-        cidr_blocks = ["0.0.0.0/0"]
-    }
-    ingress {
-        description = "Allow HTTPS traffic"
-        from_port   = 5000
-        to_port     = 5000
-        protocol    = "tcp"
-        cidr_blocks = ["0.0.0.0/0"]
-    }
-    ingress {
-        description = "Allow HTTPS traffic"
-        from_port   = 5173
-        to_port     = 5173
-        protocol    = "tcp"
-        cidr_blocks = ["0.0.0.0/0"]
-    }
+  }
 
-    egress {
-        description = "Allow all outbound traffic"
-        from_port   = 0
-        to_port     = 0
-        protocol    = "-1"
-        cidr_blocks = ["0.0.0.0/0"]
+  dynamic "egress" {
+    for_each = var.egress_rules
+    content {
+      from_port   = egress.value.from_port
+      to_port     = egress.value.to_port
+      protocol    = egress.value.protocol
+      cidr_blocks = egress.value.cidr_blocks
     }
+  }
 
-    tags = {
-        Name = "security-group1"
-    }
-}
-
-variable "vpc_id" {
-    description = "vpc-62cb4009"
-    type        = string
+  tags = var.tags
 }

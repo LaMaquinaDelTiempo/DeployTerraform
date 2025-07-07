@@ -18,6 +18,16 @@ variable "sg_id" {
   type        = string
 }
 
+variable "subnet_id" {
+  description = "The subnet ID for the EC2 instance"
+  type        = string
+}
+
+variable "user_data" {
+  description = "The user data script to initialize the instance with pm2"
+  type        = string
+}
+
 variable "environment" {
   description = "The environment for the EC2 instance"
   type        = string
