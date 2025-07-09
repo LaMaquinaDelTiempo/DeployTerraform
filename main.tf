@@ -31,7 +31,23 @@ module "security_group_Group1" {
       to_port     = 3000
       protocol    = "tcp"
       cidr_blocks = ["0.0.0.0/0"]  # Puerto de Remix con pm2
-    }
+    },
+    {
+    from_port   = 3000
+    to_port     = 3000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]  # Para IPv4
+    ipv6_cidr_blocks = ["::/0"] # Para IPv6
+    description = "Permitir trafico a la app en puerto 3000"
+  },
+  {
+    from_port   = 34373
+    to_port     = 34373
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]  # Para IPv4
+    ipv6_cidr_blocks = ["::/0"] # Para IPv6
+    description = "Permitir trafico a la app en puerto 34373"
+  }
   ]
   egress_rules = [
     {
